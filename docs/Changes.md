@@ -65,6 +65,10 @@ I added a bunch of helptext for classes, properties, and functions so the `help`
 
 Reformatted helptext to use Matlab's standard "single-line H1 and then details" format. This makes the listings you get for `doc <classname>` much nicer.
 
+### Prose style
+
+* "symlink" is conventionally spelled without a hyphen or space.
+
 ## API changes
 
 I've made some suggested changes to the public API for the library
@@ -100,6 +104,12 @@ I changed several properties and function return values that were using charvecs
 ### Naming
 
 I'm standardizing function, method, and property names as `camelCase`. That seems to be the predominant style here, but some names were in `snake_case`, and I'm converting some of them over. Some of them, like in the KilosortDataset class, look like they might be there for compatibility or analagousness with another Neuropixels library implementation (maybe some Python thing?), so I'm leaving those alone for now.
+
+#### "inspect" vs. "plot"
+
+The methods to produce graphical visualizations of the data in Neuropixel Utils are named in the form "`inspect*`". But "inspect" has an established, specific meaning in programming: it means to produce a detailed, low-level dump of the state of an object or data structure, either for debugging-oriented display (usually at the console) or for editing in a GUI (typically those 2-column, lots-of-rows editor widgets you see with property name in the first column and property value in the second column). And I actually want to use "inspect" in that sense in this code.
+
+Matlab typically uses the term "plot" for producing graphical visualizations. So I'm renaming the "`inspect*`" methods to "`plot*`", and producing new `inspect` methods that produce debugging dumps.
 
 ### No Hidden stuff
 
@@ -184,3 +194,7 @@ I modified some of the error messages to include more details about what went wr
 ### Argument blocks
 
 Converted a lot of the methods and functions to use Matlab's new `arguments` block syntax, where appropriate. This syntax is IMHO more readable and flexible than procedural input validation & conversion.
+
+### Broken examples
+
+The code in `tutorial.ipynb` was broken in a few ways. Looks like it was written against an older version of the library and never updated. I made a guess at how to bring it up to date.

@@ -9,7 +9,13 @@ layout: default
 
 ## Code
 
+* You've got some calls to `debug()` scattered around the example code. It's broken because that function doesn't exist. Would you like me to add some real logging support?
+  * I'd recommend basing it on a "privatized" vendored version of my [SLF4M Logging Framework for Matlab](https://slf4m.janklab.net).
 * Do you want to try to be Mlint-inspection-clean?
+
+## Example code and data
+
+* The workflows in the examples and tutorial are non-idempotent! They write back to the original input files. This means they'll produce different results if run more than once, and would produce changes that could get checked back in to an example data set repo.
 
 ## Miscellaneous
 
