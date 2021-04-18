@@ -6,4 +6,6 @@ This repo will contain work products, notes, project management stuff, and other
 
 The repo fork for this project's actual code is at <https://github.com/apjanke/neuropixel-utils>.
 
+See a live copy of this documentation at <https://apjanke.github.io/neuropixel-jankify>.
+
 This project is supported by [MathWorks](https://mathworks.com).
