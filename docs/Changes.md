@@ -35,13 +35,38 @@ The `.mltbx` file will be included in the release distribution files posted for 
 * `Mcode/` – The Matlab source code itself. This is a separate folder to keep things tidy, and avoid the (unlikely) case of problems from having extraneous files on the path.
 * Documentation
   * `doc-src/` – The MkDocs source for the documentation lives here now.
-  * `docs/` – This is now the _generated output_ from MkDocs. This is required because "`docs`" is the only subdirectory name that GitHub supports publishing from
+  * `docs/` – This is now the _generated output_ from MkDocs. This is required because "`docs`" is the only subdirectory name that GitHub supports publishing from.
   * `doc-project/` – Internal, developer-oriented documentation for people working on Neuropixel Utils itself.
 * `examples/` – User-facing example code is collected here. These examples are also used to generate part of the doco.
-* `.mlproject.json`, `info.xml`, `neuropixel-utils.prj.in`, `npxutils_toolbox_info.m` – These are all 
+* `.mlproject.json`, `info.xml`, `neuropixel-utils.prj.in`, `npxutils_toolbox_info.m` – These are all for Matlab Toolbox packaging support.
+* `Changes.md` – [ChangeLog](https://keepachangelog.com/) for the library.
 
 #### Repo meta-organization
 
 * The `gh-pages` branch is deprecated, and will no longer be updated.
 * The default `master` branch is [renamed to `main`, for sensitivity reasons](https://sfconservancy.org/news/2020/jun/23/gitbranchname/).
 * GitHub Pages is configured to publish from `main` instead of `gh-pages`.
+
+## Library documentation
+
+### ChangeLog
+
+I added a [ChangeLog](https://keepachangelog.com/) to the library at `Changes.md`. This is a manually-maintained, curated history of changes made to the library. It's very useful for users to have this, so they can see what important things have happened in each release.
+
+### Local copies
+
+The MkDocs stuff is now targeting local, in-repo/in-distribution copies of the documentation as well as publishing to GitHub Pages. This is so users (and devs) can have copies of the doco corresponding to the exact version of the code they're working on, and so it can be included in the Matlab Help Browser.
+
+I changed the `mkdocs.yml` config to turn off directory links, in order to support viewing the docs directly from files on the filesystem. This way users don't have to run a web server in order to correctly browse them.
+
+## API changes
+
+I've made some suggested changes to the public API for the library
+
+### Package naming
+
+I renamed the packages to keep in line with Matlab package naming conventions, and make them easier for clients to use. The convention for Matlab (and many other programming languages) is to have package names in all lower case. And in Matlab's case, it's important that they be short: because Matlab's `import` statement is function-scoped, not file-scoped, you're going to end up typing your package names a _lot_. (IMHO this is a design flaw in Matlab's `import` statement.)
+
+I renamed the top `+Neuropixel` package to `+npxutils`. That's short, catchy, and distinctive, and includes the "Utils" part of "Neuropixel Utils": I think that's a good idea, to distinguish this "Neuropixel Utils" library from "Neuropixels" itself, which is the probe manufacturer, and has its own library on GitHub, right?
+
+Renamed `+Utils` to `+utils` and `+DataProcessFn` to `+dataprocess`, to conform with Matlab's naming convention's case.
