@@ -108,3 +108,9 @@ A space after the property name and before the size specifier; no spaces after c
 ### Autoformatting
 
 I reformatted all the code in the library using the Matlab Editor's auto-formatting (Cmd-A, Cmd-I) for consistency. It's easier to keep your code format consistent if you do this.
+
+## Releasing
+
+The release support assumes that you will be publishing releases on the GitHub repo.
+
+Instructions for how to do a release are in `doc-project/Release Checklist.md`.
