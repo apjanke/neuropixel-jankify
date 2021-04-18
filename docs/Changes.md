@@ -81,7 +81,7 @@ I renamed the top `+Neuropixel` package to `+npxutils`. That's short, catchy, an
 
 Renamed `+Utils` to `+utils` and `+DataProcessFn` to `+dataprocess`, to conform with Matlab's naming convention's case.
 
-### `+internal` package
+### +internal package
 
 There's now an `+internal` subpackage under `+npxutils` to hold the parts of the code that are for the library's internal use. This is an established convention that many clients will be familiar with; Matlab itself uses it (and even has some IDE support for it).
 
@@ -91,13 +91,13 @@ Using an `+internal` package is often preferable to making code private using `p
 
 I moved everything under `+Utils` to `+internal`, except for `getDefaultChannelMapFile.m`, because that all looked like internal-use stuff.
 
-### `+io` subpackage
+### +io subpackage
 
 I moved the file IO functions into a new `npxutils.io` subpackage, to keep the code organized, and hopefully make it easier to learn, because readers can go through the code by category and have fewer classes and functions to consider at a time.
 
 Added some additional lower-level/more-basic IO functions there, too, to factor out repeated code sections from the rest of the code base. Matlab's IO and filesystem-manipulation functions are a bit _too_ low-level, IMHO.
 
-### `+internal/+util` package
+### +internal/+util package
 
 This contains a bunch of little utility functions, mostly filesystem and IO related, that wrap Matlab's basic IO functions in a slightly higher-level interface that is safer and more concise to use.
 
@@ -105,7 +105,7 @@ But typing out `npxutils.internal.util.whatever(...)` is a mouthful. So these ut
 
 I may have gone overboard a bit here, but I think it winds up with a nicer coding experience.
 
-### `npxutils.globals`
+### npxutils.globals
 
 There's a new `npxutils.globals` class that collects common library-level info and global settings. This lets you programmatically expose the library version, and reference the repo/distribution/installation root path in a common way.
 
@@ -175,7 +175,7 @@ Dependent and protected properties should have helptext, too.
 
 "See also"s should be specially formatted so Matlab's helptext processor can pick them up and render them as references or hyperlinks.
 
-### "`out`" argout
+### "out" argout
 
 I changed the output argument name for some methods to be the standard, concise `out`. IMHO, this makes it a bit easier to understand the control flow inside a function, and keeps the helptext more readable.
 
@@ -193,7 +193,7 @@ Instructions for how to do a release are in `doc-project/Release Checklist.md`.
 
 ## Implementation stuff
 
-### `this` variable name
+### "this" variable name
 
 It is conventional to use a standard variable name for the method dispatch object in method parameter lists. Common choices are `this`, `self`, or `obj`. Doing this makes it clear which argin is intended to be the method dispatch object, and distinguishes regular methods from those that are intended to be dispatched as virtual functions using multiple dispatch (that is, where the type of all the argins is considered, not just the first one).
 
@@ -213,7 +213,7 @@ Converted a lot of the methods and functions to use Matlab's new `arguments` blo
 
 The code in `tutorial.ipynb` was broken in a few ways. Looks like it was written against an older version of the library and never updated. I made a guess at how to bring it up to date.
 
-### "RAII" pattern and `onCleanup`
+### "RAII" pattern and 'onCleanup'
 
 Try/catch blocks that do resource cleanup like this:
 
