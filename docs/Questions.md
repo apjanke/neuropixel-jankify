@@ -10,3 +10,7 @@ layout: default
 ## Code
 
 * Do you want to try to be Mlint-inspection-clean?
+
+## Miscellaneous
+
+* We probably need to clarify the licensing situation on the third-party code that's been copied in to Neuropixel Utils, and include license info for them in the project doco and distribution.

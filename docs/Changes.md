@@ -131,6 +131,10 @@ I reformatted all the code in the library using the Matlab Editor's auto-formatt
 
 ### Helptext
 
+Helptext should be formatted both to produce good output in `doc` and `help`, and to be readable in the source code. I think that the doc/help case should take priority over direct source code reading if there is a conflict between them.
+
+There was a fair amount of this to do! I tried to spruce up the helptext everywhere to produce nicer user-facing doco.
+
 I moved the helptext for most properties to the line above the property, instead of being an inline trailing comment. This gives you more space to write in, and makes it clearer that the comment is indeed intended to be helptext.
 
 It is conventional for H1 lines to be capitalized and to end with a period.
