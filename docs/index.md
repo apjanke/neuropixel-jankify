@@ -10,3 +10,4 @@ This repo will contain work products, notes, project management stuff, and other
 
 * [Changes](Changes.md) – Suggested changes I've made to the Neuropixel Utils repo.
 * [Example Data](example-data.html) – Work on storing and sharing example data to go with Neuropixel Utils.
+* [Questions](Questions.md) – Outstanding questions I have.
