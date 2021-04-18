@@ -103,7 +103,23 @@ I changed several properties and function return values that were using charvecs
 
 For property validators, it is conventional to format them like this:
 
+```matlab
+        cluster_ids (:,1) uint32
+        subgroupSet (:,1) string
+```
+
+Not like this:
+
+```matlab
+        cluster_ids(:, 1) uint32
+        subgroupSet(:, 1) string
+```
+
 A space after the property name and before the size specifier; no spaces after commas inside the size specifier.
+
+It is conventional for there to be a space between "`properties`" or "`methods`" and the `(...)` attributes list that follows them.
+
+I've restyled the code to follow these conventions.
 
 ### Autoformatting
 
@@ -112,6 +128,12 @@ I reformatted all the code in the library using the Matlab Editor's auto-formatt
 ### Helptext
 
 I moved the helptext for most properties to the line above the property, instead of being an inline trailing comment. This gives you more space to write in, and makes it clearer that the comment is indeed intended to be helptext.
+
+It is conventional for H1 lines to be capitalized.
+
+You can have multi-line helptext for properties! This works nicely with the `doc` browser.
+
+Dependent and protected properties should have helptext, too.
 
 ### "`out`" argout
 
