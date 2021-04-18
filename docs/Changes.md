@@ -91,6 +91,20 @@ Using an `+internal` package is often preferable to making code private using `p
 
 I moved everything under `+Utils` to `+internal`, except for `getDefaultChannelMapFile.m`, because that all looked like internal-use stuff.
 
+### `+io` subpackage
+
+I moved the file IO functions into a new `npxutils.io` subpackage, to keep the code organized, and hopefully make it easier to learn, because readers can go through the code by category and have fewer classes and functions to consider at a time.
+
+Added some additional lower-level/more-basic IO functions there, too, to factor out repeated code sections from the rest of the code base. Matlab's IO and filesystem-manipulation functions are a bit _too_ low-level, IMHO.
+
+### `+internal/+util` package
+
+This contains a bunch of little utility functions, mostly filesystem and IO related, that wrap Matlab's basic IO functions in a slightly higher-level interface that is safer and more concise to use.
+
+But typing out `npxutils.internal.util.whatever(...)` is a mouthful. So these utility functions are further "shimmed" with wrappers in the `private/` subdir under `+npxutils` and `+npxutils/+io`, so from those packages, you can just call the utility functions as `whatever(...)` instead of `npxutils.util.whatever(...)`, which is nicer to work with, and avoids duplicated code, yet the top-level global function namespace is not contaminated.
+
+I may have gone overboard a bit here, but I think it winds up with a nicer coding experience.
+
 ### `npxutils.globals`
 
 There's a new `npxutils.globals` class that collects common library-level info and global settings. This lets you programmatically expose the library version, and reference the repo/distribution/installation root path in a common way.
@@ -198,3 +212,33 @@ Converted a lot of the methods and functions to use Matlab's new `arguments` blo
 ### Broken examples
 
 The code in `tutorial.ipynb` was broken in a few ways. Looks like it was written against an older version of the library and never updated. I made a guess at how to bring it up to date.
+
+### "RAII" pattern and `onCleanup`
+
+Try/catch blocks that do resource cleanup like this:
+
+```matlab
+fid = fopen('foo.txt', 'w');
+try
+  % ... write data ...
+  fclose(fid);
+catch err
+  fclose(fid); % ensure file handle is not leaked
+  rethrow(err);
+end
+```
+
+Can be more concisely and safely written using `onCleanup()` or object destructors. (It's safer because it correctly handles dbquit, nested try/catch logic errors, and other issues.) Like this:
+
+```matlab
+fid = fopen('foo.txt', 'w');
+RAII.fid = onCleanup(@() fclose(fid));
+% ... write data ...
+% ... and that's it! You don't need an fclose here either!
+```
+
+I stick these handles in a struct conventionally named `RAII` because this pattern is similar to one called ["RAII" ("Resource Acquisition Is Initialization")](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization) or ["SBRM" ("Scope Bound Resource Management")](https://stackoverflow.com/questions/30363798/what-does-scope-bound-resource-managementsbrm-mean). (Technically it's a bit different because `onCleanup` is not a constructor per se. But it's close enough.)
+
+Matlab is reference-counted, not garbage-collected, and its destructors are true deterministic destructors, not unreliable Java-style finalizers, so this works.
+
+I have converted the code to use this where appropriate.
