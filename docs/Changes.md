@@ -2,7 +2,7 @@
 layout: default
 ---
 
-This document describes the suggested changes I've come up with for the Neuropixel Utils library and its project repo.
+This document describes the suggested changes I've come up with for the [Neuropixel Utils library](https://djoshea.github.io/neuropixel-utils/) and its project [repo](https://github.com/djoshea/neuropixel-utils/).
 
 ## Where's the code
 
