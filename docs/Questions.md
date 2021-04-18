@@ -20,3 +20,4 @@ layout: default
 ## Miscellaneous
 
 * We probably need to clarify the licensing situation on the third-party code that's been copied in to Neuropixel Utils, and include license info for them in the project doco and distribution.
+* [Kilosort2.5](https://github.com/MouseLand/Kilosort/releases/tag/v2.5) is out, and Kilosort3 is [under development](https://github.com/MouseLand/Kilosort). Want to add support for them?
