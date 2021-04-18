@@ -59,6 +59,12 @@ The MkDocs stuff is now targeting local, in-repo/in-distribution copies of the d
 
 I changed the `mkdocs.yml` config to turn off directory links, in order to support viewing the docs directly from files on the filesystem. This way users don't have to run a web server in order to correctly browse them.
 
+### Helptext / API reference
+
+I added a bunch of helptext for classes, properties, and functions so the `help` and `doc` commands are more useful with this library. Also fixed several cases where internal code comments were being spuriously picked up as helptext. (Any comment immediately following a `function ... = ...` line is treated as helptext; if you want to make a code comment there instead, you have to add at least a dummy helptext section.)
+
+Reformatted helptext to use Matlab's standard "single-line H1 and then details" format. This makes the listings you get for `doc <classname>` much nicer.
+
 ## API changes
 
 I've made some suggested changes to the public API for the library
@@ -70,3 +76,35 @@ I renamed the packages to keep in line with Matlab package naming conventions, a
 I renamed the top `+Neuropixel` package to `+npxutils`. That's short, catchy, and distinctive, and includes the "Utils" part of "Neuropixel Utils": I think that's a good idea, to distinguish this "Neuropixel Utils" library from "Neuropixels" itself, which is the probe manufacturer, and has its own library on GitHub, right?
 
 Renamed `+Utils` to `+utils` and `+DataProcessFn` to `+dataprocess`, to conform with Matlab's naming convention's case.
+
+### `+internal` package
+
+There's now an `+internal` subpackage under `+npxutils` to hold the parts of the code that are for the library's internal use. This is an established convention that many clients will be familiar with; Matlab itself uses it (and even has some IDE support for it).
+
+Stuff in any `+internal` subpackage is not part of the public API of the library, and is subject to change at any time.
+
+Using an `+internal` package is often preferable to making code private using `private` access modifiers or a `private/` subdirectory, because it can still be referenced and tested directly, which makes developing it easier.
+
+I moved everything under `+Utils` to `+internal`, except for `getDefaultChannelMapFile.m`, because that all looked like internal-use stuff.
+
+### `npxutils.globals`
+
+There's a new `npxutils.globals` class that collects common library-level info and global settings. This lets you programmatically expose the library version, and reference the repo/distribution/installation root path in a common way.
+
+There shouldn't be much in this class; globals are generally bad.
+
+### string-ification
+
+I changed several properties and function return values that were using charvecs to use the newer, nicer `string` arrays instead.
+
+## Code formatting
+
+### Style tweaks
+
+For property validators, it is conventional to format them like this:
+
+A space after the property name and before the size specifier; no spaces after commas inside the size specifier.
+
+### Autoformatting
+
+I reformatted all the code in the library using the Matlab Editor's auto-formatting (Cmd-A, Cmd-I) for consistency. It's easier to keep your code format consistent if you do this.
