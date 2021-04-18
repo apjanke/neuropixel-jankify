@@ -1,14 +1,13 @@
-title: MailSpoon Documentation
+title: Neuropixel Utils Jankification
 email: andrew@apjanke.net
-description: Sophisticated HTML email generation in Matlab
+description: A project to software-engineering-ify the Neuropixel Utils library
 
 baseurl: "/"
 url: ""
 
 theme: jekyll-theme-cayman
 
-github_username: janklab
-google_analytics: G-B6G2FLSWGL
+github_username: apjanke
 
 # Fixed GitHub Pages configuration
 markdown: kramdown
