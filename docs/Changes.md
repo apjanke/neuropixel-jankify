@@ -109,8 +109,30 @@ A space after the property name and before the size specifier; no spaces after c
 
 I reformatted all the code in the library using the Matlab Editor's auto-formatting (Cmd-A, Cmd-I) for consistency. It's easier to keep your code format consistent if you do this.
 
+### Helptext
+
+I moved the helptext for most properties to the line above the property, instead of being an inline trailing comment. This gives you more space to write in, and makes it clearer that the comment is indeed intended to be helptext.
+
+### "`out`" argout
+
+I changed the output argument name for some methods to be the standard, concise `out`. IMHO, this makes it a bit easier to understand the control flow inside a function, and keeps the helptext more readable.
+
 ## Releasing
 
 The release support assumes that you will be publishing releases on the GitHub repo.
 
 Instructions for how to do a release are in `doc-project/Release Checklist.md`.
+
+## Implementation stuff
+
+### `this` variable name
+
+It is conventional to use a standard variable name for the method dispatch object in method parameter lists. Common choices are `this`, `self`, or `obj`. Doing this makes it clear which argin is intended to be the method dispatch object, and distinguishes regular methods from those that are intended to be dispatched as virtual functions using multiple dispatch (that is, where the type of all the argins is considered, not just the first one).
+
+I went with `this`, since that's what some of Matlab's own code uses, and is common in other programming languages.
+
+I changed most of the methods' code to use this convention.
+
+### Error messages
+
+I modified some of the error messages to include more details about what went wrong, with summaries of the actual data problem. (E.g. if there's a size mismatch error, include the actual and expected sizes in the error message.) Makes debugging easier.
