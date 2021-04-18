@@ -11,3 +11,11 @@ This repo will contain work products, notes, project management stuff, and other
 * [Changes](Changes.md) – Suggested changes I've made to the Neuropixel Utils repo.
 * [Example Data](example-data.html) – Work on storing and sharing example data to go with Neuropixel Utils.
 * [Questions](Questions.md) – Outstanding questions I have.
+
+## Acknowledgments
+
+Thank you to [MathWorks](https://mathworks.com) for sponsoring this project.
+
+Thank you to [Phish](https://livephish.com) and [Rosé](https://www.youtube.com/watch?v=Q88P1gpOJxA) for powering my coding.
+
+Thank you to the [Matlab Discord](https://discord.gg/bBMbNCT) for helping me out when I get stuck.

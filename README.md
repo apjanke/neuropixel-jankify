@@ -9,3 +9,11 @@ The repo fork for this project's actual code is at <https://github.com/apjanke/n
 See a live copy of this documentation at <https://apjanke.github.io/neuropixel-jankify>.
 
 This project is supported by [MathWorks](https://mathworks.com).
+
+## Acknowledgments
+
+Thank you to [MathWorks](https://mathworks.com) for sponsoring this project.
+
+Thank you to [Phish](https://livephish.com) and [Rosé](https://www.youtube.com/watch?v=Q88P1gpOJxA) for powering my coding.
+
+Thank you to the [Matlab Discord](https://discord.gg/bBMbNCT) for helping me out when I get stuck.
