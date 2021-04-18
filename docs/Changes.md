@@ -99,7 +99,13 @@ I changed several properties and function return values that were using charvecs
 
 ### Naming
 
-I'm standardizing function, method, and property names as `camelCase`. That seems to be the predominant style here, but some names were in `snake_case`, and I'm converting them over.
+I'm standardizing function, method, and property names as `camelCase`. That seems to be the predominant style here, but some names were in `snake_case`, and I'm converting some of them over. Some of them, like in the KilosortDataset class, look like they might be there for compatibility or analagousness with another Neuropixels library implementation (maybe some Python thing?), so I'm leaving those alone for now.
+
+### No Hidden stuff
+
+In Matlab, `Hidden` properties and methods are a bad code smell. They are part of a class's public interface, but not visible in its documentation or tab-completion support, which makes them hard to deal with. Hidden methods and properties should almost always be dealt with by making them `private`, refactoring them out to another class to which the first class delegates, or hiding them in just the object display with a custom `disp` method (if you're just making them `Hidden` to avoid "cluttering" the object display).
+
+The one legit use case for `Hidden` members is as back-compatibility shims, where the class's interface has changed, and you want clients to use the new interface, but want to maintain compatibility with the old interface during a transitional period. That's not the case with Neuropixels, since we haven't had an API freeze yet.
 
 ## Code formatting
 
