@@ -97,6 +97,10 @@ There shouldn't be much in this class; globals are generally bad.
 
 I changed several properties and function return values that were using charvecs to use the newer, nicer `string` arrays instead.
 
+### Naming
+
+I'm standardizing function, method, and property names as `camelCase`. That seems to be the predominant style here, but some names were in `snake_case`, and I'm converting them over.
+
 ## Code formatting
 
 ### Style tweaks
@@ -129,15 +133,23 @@ I reformatted all the code in the library using the Matlab Editor's auto-formatt
 
 I moved the helptext for most properties to the line above the property, instead of being an inline trailing comment. This gives you more space to write in, and makes it clearer that the comment is indeed intended to be helptext.
 
-It is conventional for H1 lines to be capitalized.
+It is conventional for H1 lines to be capitalized and to end with a period.
 
 You can have multi-line helptext for properties! This works nicely with the `doc` browser.
 
 Dependent and protected properties should have helptext, too.
 
+"See also"s should be specially formatted so Matlab's helptext processor can pick them up and render them as references or hyperlinks.
+
 ### "`out`" argout
 
 I changed the output argument name for some methods to be the standard, concise `out`. IMHO, this makes it a bit easier to understand the control flow inside a function, and keeps the helptext more readable.
+
+### Miscellaneous
+
+Reformatted some code to keep the lines short, so they fit in a narrow editor window.
+
+TODO comments should be formatted as "`TODO:`"; many text editors recognize this format.
 
 ## Releasing
 
@@ -158,3 +170,7 @@ I changed most of the methods' code to use this convention.
 ### Error messages
 
 I modified some of the error messages to include more details about what went wrong, with summaries of the actual data problem. (E.g. if there's a size mismatch error, include the actual and expected sizes in the error message.) Makes debugging easier.
+
+### Argument blocks
+
+Converted a lot of the methods and functions to use Matlab's new `arguments` block syntax, where appropriate. This syntax is IMHO more readable and flexible than procedural input validation & conversion.
