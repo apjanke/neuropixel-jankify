@@ -65,6 +65,10 @@ I added a bunch of helptext for classes, properties, and functions so the `help`
 
 Reformatted helptext to use Matlab's standard "single-line H1 and then details" format. This makes the listings you get for `doc <classname>` much nicer.
 
+### Third-party software licenses
+
+I clarified the licensing situation on the third-party code that's been copied in to Neuropixel Utils, and included license info for them in the project doco and distribution. It's in `LICENSE-ThirdParty.md`.
+
 ### Prose style
 
 * "symlink" is conventionally spelled without a hyphen or space.
