@@ -23,5 +23,6 @@ layout: default
 
 ## Miscellaneous
 
-* We probably need to clarify the licensing situation on the third-party code that's been copied in to Neuropixel Utils, and include license info for them in the project doco and distribution.
+* Requires a Linux box (and a bare-metal one at that). Let's add Windows support!
+  * CUDA = NVIDIA, so no Macs for Kilosort. And npxutils uses Unix symlink commands, so no Windows.
 * [Kilosort2.5](https://github.com/MouseLand/Kilosort/releases/tag/v2.5) is out, and Kilosort3 is [under development](https://github.com/MouseLand/Kilosort). Want to add support for them?
