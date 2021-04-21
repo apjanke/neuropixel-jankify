@@ -1,5 +1,7 @@
 # Accomplishments on this project
 
+This is still a work in progress. For now, see <https://apjanke.github.io/neuropixel-jankify> for info about the ongoing changes.
+
 ## Worth talking about
 
 ## Rather minor
