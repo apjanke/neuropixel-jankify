@@ -4,9 +4,9 @@ This is a project management repo for Andrew Janke's 2021 project to enhance the
 
 This repo will contain work products, notes, project management stuff, and other things related to the project, but which are not going in to the repo fork for potential upstreaming.
 
-The repo fork for this project's actual code is at <https://github.com/apjanke/neuropixel-utils>.
+This repo is mostly a GitHub Pages site. View it online at <https://npxutils-wip.apjanke.net/>.
 
-See a live copy of this documentation at <https://apjanke.github.io/neuropixel-jankify>.
+The repo for this project's actual code is at <https://github.com/apjanke/npxutils-apj-wip-01>.
 
 This project is supported by [MathWorks](https://mathworks.com).
 
