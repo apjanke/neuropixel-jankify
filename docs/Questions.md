@@ -2,6 +2,10 @@
 layout: default
 ---
 
+## System stuff
+
+* Did someone neglect to tell me that this stuff only runs on Linux? Kilosort requires CUDA so Mac is out, and here's a `readlink` call in `makeSymLink.m` and that's not going to work on Windows, so, Linux it is?
+
 ## Naming and prose style
 
 * Do you prefer "data set" or "dataset" when talking about IMEC and Kilosort data sets? ("dataset" might be confused with the Matlab `dataset` type/class.)
