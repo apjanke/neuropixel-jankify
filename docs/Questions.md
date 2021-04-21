@@ -14,7 +14,9 @@ layout: default
 ## Code
 
 * You've got some calls to `debug()` scattered around the example code. It's broken because that function doesn't exist. Would you like me to add some real logging support?
-  * I'd recommend basing it on a "privatized" vendored version of my [SLF4M Logging Framework for Matlab](https://slf4m.janklab.net).
+  * I could do either a simple native-Matlab thing with just "info" and "debug" and a central on/off switch for the debug output.
+  * Or I could hook you up with a full logging framework that's built on one of the established Java logging frameworks, and gives you lots of extra control and output options.
+    * I'd recommend basing it on a "privatized" vendored version of my [SLF4M Logging Framework for Matlab](https://slf4m.janklab.net) if you go this route.
 * Do you want to try to be Mlint-inspection-clean?
 * Can we pin down a code style?
   * 4 space indents, I guess?
@@ -23,6 +25,7 @@ layout: default
 ## Example code and data
 
 * The workflows in the examples and tutorial are non-idempotent! They write back to the original input files. This means they'll produce different results if run more than once, and would produce changes that could get checked back in to an example data set repo.
+* About paths: A lot of the paths in the example code use `/data`. That's a root-controlled mount point; many users are unlikely to have it or have access to create it. I think the example code should all use paths under the user's home directory as a default, and preferably factor all these out to a central configuration point.
 
 ## Miscellaneous
 
