@@ -16,6 +16,9 @@ layout: default
 * You've got some calls to `debug()` scattered around the example code. It's broken because that function doesn't exist. Would you like me to add some real logging support?
   * I'd recommend basing it on a "privatized" vendored version of my [SLF4M Logging Framework for Matlab](https://slf4m.janklab.net).
 * Do you want to try to be Mlint-inspection-clean?
+* Can we pin down a code style?
+  * 4 space indents, I guess?
+  * How long do you want your lines to be? 80, 90, 100 chars? I see a lot of long non-wrapped lines hanging around.
 
 ## Example code and data
 
