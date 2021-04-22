@@ -10,6 +10,12 @@ Because I ended up making extensive changes to various aspects of the library an
 
 My work-in-progress version of the repo is at <https://github.com/apjanke/npxutils-apj-wip-01>. Commentary on it can be found at <https://github.com/apjanke/neuropixel-jankify>. A live preview of the updated GitHub Pages site is at <http://npxutils-wip.apjanke.net/>.
 
+## Live Scripts
+
+I copied all the examples in the GitHub Pages doco to Live Scripts, found in the `examples/` directory. These are exported into the MkDocs stuff at `doc-src/docs/publish/`. They're redundant with the main pages in the MkDocs site now; we can work that out once Dan decides which format he likes better.
+
+See the `dev-kit/` stuff for how the publishing pipeline works.
+
 ## Repo structure
 
 I've changed the repo layout, moving things around and introducing new top-level directories and files. This is mostly to support doing true versioned releases of Neuropixel Utils.
@@ -127,7 +133,7 @@ I'm standardizing function, method, and property names as `camelCase`. That seem
 
 The methods to produce graphical visualizations of the data in Neuropixel Utils are named in the form "`inspect*`". But "inspect" has an established, specific meaning in programming: it means to produce a detailed, low-level dump of the state of an object or data structure, either for debugging-oriented display (usually at the console) or for editing in a GUI (typically those 2-column, lots-of-rows editor widgets you see with property name in the first column and property value in the second column). And I actually want to use "inspect" in that sense in this code.
 
-Matlab typically uses the term "plot" for producing graphical visualizations. So I'm renaming the "`inspect*`" methods to "`plot*`", and producing new `inspect` methods that produce debugging dumps.
+Matlab typically uses the term "plot" for producing graphical visualizations. So I've renamed the "`inspect*`" methods to "`plot*`", and am writing new `inspect` methods that produce debugging dumps.
 
 ### No Hidden stuff
 
